@@ -1,0 +1,77 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="20dp"
+    tools:context="br.com.henry.gameofvelha_v1.MenuActivity">
+
+    <TextView
+        android:layout_weight="1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@drawable/icon"
+            android:layout_gravity="center"
+            android:background="@null"
+            android:layout_height="wrap_content"
+            android:layout_width="wrap_content"/>
+
+        <TextView
+            android:id="@+id/govTxtMenu"
+            android:layout_gravity="center"
+            android:textSize="30sp"
+            android:layout_centerHorizontal="true"
+            android:text="@string/app_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="4"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        >
+
+        <Button
+            android:background="@drawable/botao_principal"
+            android:text="@string/jogarBtn"
+            android:textColor="@color/lightgray"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/btn_jogar_menu" />
+        <Button
+            android:textColor="@color/lightgray"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/botao_principal"
+            android:text="@string/configuracoesBtn"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:id="@+id/btn_config_menu" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:paddingBottom="5dp"
+            android:gravity="center"
+            android:text="@string/copyRight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </LinearLayout>
+
+</LinearLayout>

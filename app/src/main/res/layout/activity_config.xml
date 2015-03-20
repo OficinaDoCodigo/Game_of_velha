@@ -1,0 +1,130 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:padding="20dp"
+    android:orientation="vertical"
+    tools:context="br.com.oficinadocodigo.gameofvelha.ConfigActivity">
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp"
+        >
+
+        <TextView
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Configurações"
+            android:gravity="center"
+            android:textSize="20dp"
+            />
+
+        </LinearLayout>
+
+   <LinearLayout
+       android:layout_width="fill_parent"
+       android:layout_height="wrap_content"
+       android:background="@drawable/box"
+       android:padding="10dp"
+       android:gravity="top"
+       android:orientation="vertical"
+       >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Som"
+            android:textSize="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            >
+
+            <Switch
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:id="@+id/ck_play_sound_config"
+                android:checked="true"
+                android:hint="  Habilitar áudio "
+                />
+
+            <TextView
+                android:layout_width="200dp"
+                android:layout_height="fill_parent"
+                android:layout_marginTop="25dp"
+                android:paddingLeft="6dp"
+                android:text="Volume"
+                />
+            <SeekBar
+                android:layout_width="220dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="1dp"
+                android:progress="100"
+                android:id="@+id/seekbar_volume_config"
+
+            />
+
+        </LinearLayout>
+   </LinearLayout>
+
+    <!-- General configs  -->
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/box"
+        android:padding="10dp"
+        android:layout_marginTop="20dp"
+        android:gravity="top"
+        android:orientation="vertical"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Game"
+            android:textSize="20dp"
+            />
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_margin="20dp"
+            android:orientation="vertical"
+            android:padding="1dp"
+            >
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/botao_principal"
+                android:text="Resetar"
+                android:textColor="@color/white"
+
+                />
+
+
+            <Button
+                android:layout_width="fill_parent"
+                android:layout_height="40dp"
+                android:background="@drawable/botao_principal"
+                android:text="Créditos"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/white"
+
+                />
+
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+</LinearLayout>

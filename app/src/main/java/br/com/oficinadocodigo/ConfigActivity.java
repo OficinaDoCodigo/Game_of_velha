@@ -21,12 +21,12 @@ public class ConfigActivity extends ActionBarActivity {
         setContentView(R.layout.activity_config);
         this.getSupportActionBar().hide();
 
-        ck_sound                = (Switch) findViewById(R.id.ck_play_sound_config);
-        seekbar_volume_config   = (SeekBar) findViewById(R.id.seekbar_volume_config);
+       // ck_sound                = (Switch) findViewById(R.id.ck_play_sound_config);
+       // seekbar_volume_config   = (SeekBar) findViewById(R.id.seekbar_volume_config);
 
-        ck_sound.setChecked(TempGameData.SOUND_PLAY);
-        seekbar_volume_config.setProgress(TempGameData.VOLUME);
-
+       // ck_sound.setChecked(TempGameData.SOUND_PLAY);
+        //seekbar_volume_config.setProgress(TempGameData.VOLUME);
+/**
         ck_sound.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -61,7 +61,7 @@ public class ConfigActivity extends ActionBarActivity {
 
             }
         });
-
+ **/
     }
 
 

@@ -6,7 +6,9 @@
     <string name="configuracoesBtn">CONFIGURAÇÕES</string>
 
     <string name="copyRight">© Copyright Oficina do Código</string>
+    <string name="copyRightData">© 2015 Carlos Henry and Caio Alves</string>
     <string name="copy_right">Oficina do Código</string>
+
     <string name="title_activity_choose_player">Jogador_1</string>
 
     <string name="playerSelection1">Selecionar player 1</string>

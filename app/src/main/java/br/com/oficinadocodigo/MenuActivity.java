@@ -11,7 +11,7 @@ import android.widget.Button;
 import br.com.oficinadocodigo.aux.TempGameData;
 
 
-public class MenuActivity extends ActionBarActivity implements View.OnClickListener {
+public class MenuActivity extends ActionBarActivity implements View.OnClickListener   {
 
 
     public static MediaPlayer media;

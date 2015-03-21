@@ -38,8 +38,11 @@
             />
 
         <RadioGroup
+            android:id="@+id/rg1"
             android:layout_width="fill_parent"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"
+            android:onClick="seila"
+            >
 
             <TableLayout
                 android:layout_width="fill_parent"
@@ -49,6 +52,7 @@
                     android:layout_weight="1">
 
                     <RadioButton
+                        android:onClick="checked"
                         android:id="@+id/rb1"
                         android:checked="true"
                         android:layout_weight="1"
@@ -97,7 +101,7 @@
 
             <Button
                 android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="50dp"
                 android:text="@string/jogarBtn"
                 android:layout_gravity="bottom"
                 android:background="@drawable/botao_principal"

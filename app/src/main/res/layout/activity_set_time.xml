@@ -170,6 +170,7 @@
 
                 <TextView
                     android:text="o"
+                    android:gravity="center"
                     android:textSize="70sp"
                     android:id="@+id/simbolP2"
                     android:layout_width="wrap_content"

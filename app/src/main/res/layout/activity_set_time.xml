@@ -90,7 +90,7 @@
                 android:background="@drawable/botao_principal"
                 android:textColor="@color/white"
                 android:textSize="18sp"
-
+                android:id="@+id/btn_save_adjust"
                 />
         </LinearLayout>
 

@@ -96,6 +96,8 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/p1"
+                    android:textSize="20sp"
                     android:gravity="center_horizontal"
                     android:padding="4dp"
                     android:textAlignment="center"
@@ -115,6 +117,7 @@
                     android:text="x"
                     android:gravity="center"
                     android:textSize="70sp"
+                    android:id="@+id/simbolP1"
                     android:layout_width="fill_parent"
                     android:layout_height="fill_parent" />
 
@@ -149,10 +152,12 @@
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content">
                 <TextView
+                    android:id="@+id/p2"
+                    android:textSize="20sp"
                     android:gravity="center_horizontal"
                     android:padding="4dp"
                     android:textAlignment="center"
-                    android:text="user1"
+                    android:text="user2"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content" />
             </LinearLayout>
@@ -166,6 +171,7 @@
                 <TextView
                     android:text="o"
                     android:textSize="70sp"
+                    android:id="@+id/simbolP2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content" />
 

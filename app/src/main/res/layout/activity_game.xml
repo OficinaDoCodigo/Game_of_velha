@@ -27,7 +27,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-
                 >
 
 
@@ -41,7 +40,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:orientation="vertical"
-
+                    android:gravity="bottom"
+                    android:layout_marginLeft="6dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -64,6 +64,11 @@
                 </LinearLayout>
             </LinearLayout>
 
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/timerPlayOne" />
         </LinearLayout>
 
 
@@ -90,14 +95,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:orientation="vertical"
-
+                    android:gravity="bottom"
+                    android:layout_marginRight="6dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Kaio"
                         android:id="@+id/playerTwoGame"
-                        android:layout_gravity="center"
                         android:textColor="@color/white"
                         />
                     <TextView
@@ -117,40 +122,16 @@
                     android:src="@drawable/iconeloiro"
                     />
             </LinearLayout>
-
-
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="150dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:id="@+id/timerPlayTwo" />
 
         </LinearLayout>
     </LinearLayout>
 
-
-    <LinearLayout
-        android:paddingTop="3dp"
-        android:background="@color/greenclaro"
-        android:layout_weight="0.1"
-        android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-
-        <ProgressBar
-            android:layout_weight="1"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="100dp"
-            android:layout_marginRight="5dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="right"
-            android:id="@+id/timerPlayTwo" />
-
-
-        <ProgressBar
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            style="?android:attr/progressBarStyleHorizontal"
-            android:layout_width="100dp"
-            android:layout_height="wrap_content"
-            android:id="@+id/timerPlayOne" />
-
-
-    </LinearLayout>
 
     <LinearLayout
         android:layout_width="fill_parent"

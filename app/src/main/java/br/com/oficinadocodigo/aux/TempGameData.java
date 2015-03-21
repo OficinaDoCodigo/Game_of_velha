@@ -13,6 +13,10 @@ public class TempGameData {
     public static String    PLAYER_TWO;
     public static int       TIME = 60;
 
+    public  static String SIMBOL_P1;
+    public  static String SIMBOL_P2;
+
+
 
     /*
     public String getPLAYER_ONE(){

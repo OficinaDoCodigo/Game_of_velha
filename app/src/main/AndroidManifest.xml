@@ -44,6 +44,10 @@
             android:name=".SetTimeActivity"
             android:label="" >
         </activity>
+        <activity
+            android:name=".ShowOpponentsActivity"
+            android:label="@string/title_activity_show_opponents" >
+        </activity>
     </application>
 
 </manifest>

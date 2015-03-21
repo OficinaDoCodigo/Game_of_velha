@@ -2,8 +2,9 @@
     <string name="app_name">Game Of Velha</string>
     <string name="hello_world">Hello world!</string>
 
-    <string name="jogarBtn">Jogar</string>
-    <string name="configuracoesBtn">Configurações</string>
+    <string name="jogarBtn">JOGAR</string>
+    <string name="configuracoesBtn">CONFIGURAÇÕES</string>
+
     <string name="copyRight">© Copyright Oficina do Código</string>
     <string name="copy_right">Oficina do Código</string>
     <string name="title_activity_choose_player">Jogador_1</string>
@@ -11,8 +12,10 @@
     <string name="playerSelection1">Selecionar player 1</string>
     <string name="playerSelection2">Selecionar player 2</string>
 
-    <string name="nomeUsuario1">Nome do Jogador</string>
-    <string name="btn_save_avatar">Salvar</string>
+    <string name="nomeUsuario1">Nome do Jogador 1</string>
+    <string name="nomeUsuario2">Nome do Jogador 2</string>
+
+    <string name="btn_save_avatar">SALVAR</string>
     <string name="label_new_avatar">Crie um novo avatar</string>
     <string name="title_activity_choose_player_two">ChoosePlayerTwo</string>
     <string name="action_settings">Settings</string>

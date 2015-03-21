@@ -38,16 +38,32 @@
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="10dp"
         >
 
-        <Button
-            android:background="@drawable/botao_principal"
-            android:text="@string/jogarBtn"
-            android:textColor="@color/lightgray"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:id="@+id/btn_jogar_menu" />
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="bottom">
+            <Button
+                android:background="@drawable/botao_principal"
+                android:text="@string/jogarBtn"
+                android:textColor="@color/lightgray"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:id="@+id/btn_jogar_menu" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
         <Button
             android:textColor="@color/lightgray"
             android:layout_marginTop="4dp"
@@ -56,6 +72,12 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:id="@+id/btn_config_menu" />
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+    </LinearLayout>
 
     </LinearLayout>
 

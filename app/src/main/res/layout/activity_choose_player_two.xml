@@ -4,14 +4,11 @@
     android:layout_height="fill_parent"
     android:orientation="vertical"
     tools:context="br.com.oficinadocodigo.gameofvelha.ChoosePlayer"
-    android:background="@drawable/box"
-    android:layout_margin="20dp"
     android:padding="20dp"
     >
 
     <LinearLayout
         android:layout_weight="2"
-        android:padding="10dp"
         android:gravity="center"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
@@ -37,10 +34,10 @@
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/icon"/>
+            android:src="@drawable/iconeloiro"/>
 
         <TextView
-            android:text="@string/nomeUsuario1"
+            android:text="@string/nomeUsuario2"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -50,7 +47,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:padding="10dp"
         android:layout_weight="1"
         android:layout_height="wrap_content"
         android:layout_width="fill_parent"
@@ -60,7 +56,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Escolha seu usuário"
-
+            android:layout_marginBottom="5dp"
             />
 
         <Spinner
@@ -73,7 +69,6 @@
     </LinearLayout>
 
     <LinearLayout
-        android:padding="10dp"
         android:gravity="bottom"
         android:layout_weight="1"
         android:layout_width="fill_parent"
@@ -86,7 +81,7 @@
             android:layout_height="50dp"
             android:background="@drawable/botao_principal"
             android:textColor="@color/lightgray"
-            android:text="NÃO SOU CADASTRO"
+            android:text="Não sou cadastrado"
             android:id="@+id/btn_novo_escolherPlayer" />
 
 

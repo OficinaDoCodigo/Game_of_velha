@@ -19,10 +19,10 @@ public class GameActivity extends ActionBarActivity {
         setContentView(R.layout.activity_game);
         this.getSupportActionBar().hide();
 
-        timer = (ProgressBar) findViewById(R.id.timer);
+        //timer = (ProgressBar) findViewById(R.id.timer);
 
-        timer.setMax(TempGameData.TIME);
-        timer.setProgress(TempGameData.TIME-3);
+        //timer.setMax(TempGameData.TIME);
+        //timer.setProgress(TempGameData.TIME-3);
 
 
 

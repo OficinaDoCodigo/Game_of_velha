@@ -1,15 +1,149 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
-    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:padding="20dp"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="vertical"
     tools:context="br.com.henry.gameofvelha_v1.GameActivity">
 
 
-
-    <ProgressBar
-        style="?android:attr/progressBarStyleHorizontal"
+    <LinearLayout
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
-        android:id="@+id/timer"
-       />
-</RelativeLayout>
+        android:layout_height ="wrap_content"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:background="@color/green"
+        >
+
+        <!-- PLAYER 1 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+            >
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+
+                >
+
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/icon"
+                    />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Carlos"
+                        android:id="@+id/playerOneGame"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="x"
+                        android:id="@+id/simbolPlayOne"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
+            </LinearLayout>
+
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:id="@+id/timerPlayOne" />
+
+        </LinearLayout>
+
+
+        <!-- PLAYER 2 -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_weight="1"
+
+            >
+
+
+            <LinearLayout
+                android:layout_width="fill_parent"
+                android:gravity="right"
+                android:layout_height="50dp"
+                android:orientation="horizontal"
+
+                >
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="fill_parent"
+                    android:orientation="vertical"
+
+                    >
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Kaio"
+                        android:id="@+id/playerTwoGame"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        />
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="o"
+                        android:id="@+id/simbolPlayTwo"
+                        android:textStyle="bold"
+                        android:textSize="16sp"
+                        android:layout_gravity="center"
+                        android:textColor="@color/white"
+                        />
+                </LinearLayout>
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/iconeloiro"
+                    />
+            </LinearLayout>
+
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:id="@+id/timerPlayTwo" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_weight="10"
+        >
+
+        </LinearLayout>
+
+</LinearLayout>

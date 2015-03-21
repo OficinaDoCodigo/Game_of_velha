@@ -16,9 +16,11 @@
 
     <!--  MY COLORS -->
     <item name="green" type="color">#4ACF91</item>
+    <item name="greenclaro" type="color">#9c4acf91</item>
     <item name="white" type="color">#FFF</item>
     <item name="pink" type="color">#FE4465</item>
     <item name="vermelhoclaro" type="color">#99ff1521</item>
+    <item name="vermelhomaisclaro" type="color">#58ff1521</item>
     <item name="gray" type="color">#F0F0F0</item>
     <item name="black" type="color">#3F3F3F</item>
 

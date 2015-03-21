@@ -39,23 +39,20 @@ public class GameActivity extends ActionBarActivity {
         playerOne = (TextView) findViewById(R.id.playerOneGame);
         playerTwo = (TextView) findViewById(R.id.playerTwoGame);
 
-        /*
         timerOne.setMax(totalOne);
-        timerTwo.setMax(totalTwo);
         timerOne.setProgress(totalOne);
+
+        timerTwo.setMax(totalTwo);
         timerTwo.setProgress(totalTwo);
-         */
+
+
         playerOne.setText(TempGameData.PLAYER_ONE);
         playerTwo.setText(TempGameData.PLAYER_TWO);
-
-
 
 
         Thread progressOne = new Thread(){
             @Override
             public void run() {
-                timerOne.setMax(totalOne);
-                timerOne.setProgress(totalOne);
 
                 while(totalOne >= 0){
                     try {
@@ -68,8 +65,24 @@ public class GameActivity extends ActionBarActivity {
                 }
             }
         };
+        Thread progressTwo = new Thread(){
+            @Override
+            public void run() {
+
+                while(totalTwo >= 0){
+                    try {
+                        sleep(1000);
+                        totalTwo--;
+                        timerTwo.setProgress(totalTwo);
+                    }catch (InterruptedException e){
+
+                    }
+                }
+            }
+        };
 
         progressOne.start();
+        progressTwo.start();
 
 
     }

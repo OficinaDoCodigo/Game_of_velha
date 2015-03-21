@@ -27,7 +27,6 @@
                 android:layout_width="fill_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-
                 >
 
 
@@ -41,7 +40,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:orientation="vertical"
-
+                    android:gravity="bottom"
+                    android:layout_marginLeft="6dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
@@ -67,7 +67,7 @@
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="100dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:id="@+id/timerPlayOne" />
 
@@ -97,14 +97,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="fill_parent"
                     android:orientation="vertical"
-
+                    android:gravity="bottom"
+                    android:layout_marginRight="6dp"
                     >
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Kaio"
                         android:id="@+id/playerTwoGame"
-                        android:layout_gravity="center"
                         android:textColor="@color/white"
                         />
                     <TextView
@@ -128,7 +128,7 @@
 
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
-                android:layout_width="100dp"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
                 android:id="@+id/timerPlayTwo" />

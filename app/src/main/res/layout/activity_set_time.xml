@@ -38,44 +38,46 @@
             />
 
         <RadioGroup
-            android:id="@+id/rg1"
+            android:id="@+id/rg"
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:onClick="seila"
+            android:orientation="horizontal"
             >
 
-            <TableLayout
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-
-                <TableRow
-                    android:layout_weight="1">
 
                     <RadioButton
-                        android:onClick="checked"
                         android:id="@+id/rb1"
                         android:checked="true"
+                        android:textSize="14sp"
                         android:layout_weight="1"
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
                         android:hint="1 min"/>
 
                     <RadioButton
+
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
+                        android:textSize="14sp"
                         android:id="@+id/rb2"
                         android:layout_weight="1"
                         android:hint="30 seg"/>
 
                     <RadioButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
                         android:id="@+id/rb3"
+                        android:textSize="14sp"
                         android:layout_weight="1"
                         android:hint="15 seg"/>
 
                     <RadioButton
+                        android:layout_height="wrap_content"
+                        android:layout_width="wrap_content"
                         android:id="@+id/rb4"
+                        android:textSize="14sp"
                         android:layout_weight="1"
                         android:hint="5 seg"/>
-
-                </TableRow>
-
-            </TableLayout>
 
         </RadioGroup>
     </LinearLayout>

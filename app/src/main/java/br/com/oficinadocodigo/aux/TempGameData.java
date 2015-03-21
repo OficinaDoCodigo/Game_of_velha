@@ -11,7 +11,7 @@ public class TempGameData {
 
     public static String    PLAYER_ONE;
     public static String    PLAYER_TWO;
-    public static int       TIME;
+    public static int       TIME = 60;
 
 
     /*

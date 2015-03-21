@@ -4,7 +4,12 @@
     android:padding="20dp"
     tools:context="br.com.henry.gameofvelha_v1.GameActivity">
 
-    <TextView android:text="@string/hello_world" android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
 
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="60dp"
+        android:id="@+id/timer"
+       />
 </RelativeLayout>

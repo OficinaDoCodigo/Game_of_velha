@@ -23,19 +23,38 @@ import br.com.oficinadocodigo.aux.TempGameData;
 public class SetTimeActivity extends ActionBarActivity implements View.OnClickListener {
 
     private Button btn_save_adjust;
+    private RadioGroup  rg;
 
-    private int tempo;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_set_time);
         this.getSupportActionBar().hide();
 
-
-
         btn_save_adjust = (Button) findViewById(R.id.btn_save_adjust);
+        rg              = (RadioGroup) findViewById(R.id.rg);
 
         btn_save_adjust.setOnClickListener(this);
+
+        rg.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup group, int checkedId) {
+                int id  = rg.getCheckedRadioButtonId();
+
+                if(id == R.id.rb1){
+                    TempGameData.TIME = 60;
+                }
+                if(id == R.id.rb2){
+                    TempGameData.TIME = 30;
+                }
+                if(id == R.id.rb3){
+                    TempGameData.TIME = 15;
+                }
+                if(id == R.id.rb4){
+                    TempGameData.TIME = 5;
+                }
+            }
+        });
 
 
 

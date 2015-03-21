@@ -43,8 +43,6 @@
             android:layout_height="fill_parent"
             android:orientation="horizontal"
             >
-
-
                     <RadioButton
                         android:id="@+id/rb1"
                         android:checked="true"
@@ -55,7 +53,6 @@
                         android:hint="1 min"/>
 
                     <RadioButton
-
                         android:layout_height="wrap_content"
                         android:layout_width="wrap_content"
                         android:textSize="14sp"
@@ -78,10 +75,8 @@
                         android:textSize="14sp"
                         android:layout_weight="1"
                         android:hint="5 seg"/>
-
         </RadioGroup>
     </LinearLayout>
-
 
 
     <LinearLayout

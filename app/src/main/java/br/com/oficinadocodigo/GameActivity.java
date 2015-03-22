@@ -30,6 +30,22 @@ public class GameActivity extends ActionBarActivity {
     private int totalTwo = TempGameData.TIME;
 
 
+
+    /* Table */
+    private TextView a11;
+    private TextView a12;
+    private TextView a13;
+
+    private TextView a21;
+    private TextView a22;
+    private TextView a23;
+
+    private TextView a31;
+    private TextView a32;
+    private TextView a33;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,6 +100,19 @@ public class GameActivity extends ActionBarActivity {
 
         playerOne.setText(TempGameData.PLAYER_ONE);
         playerTwo.setText(TempGameData.PLAYER_TWO);
+
+        /* Table */
+        a11 = (TextView) findViewById(R.id.a11);
+        a12 = (TextView) findViewById(R.id.a12);
+        a13 = (TextView) findViewById(R.id.a13);
+        a21 = (TextView) findViewById(R.id.a21);
+        a22 = (TextView) findViewById(R.id.a22);
+        a23 = (TextView) findViewById(R.id.a23);
+        a31 = (TextView) findViewById(R.id.a31);
+        a32 = (TextView) findViewById(R.id.a32);
+        a33 = (TextView) findViewById(R.id.a33);
+
+
     }
 
 

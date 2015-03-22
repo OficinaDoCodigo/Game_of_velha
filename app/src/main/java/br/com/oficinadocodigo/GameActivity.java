@@ -1,5 +1,6 @@
 package br.com.oficinadocodigo;
 
+import android.app.AlertDialog;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
@@ -35,6 +36,34 @@ public class GameActivity extends ActionBarActivity {
         setContentView(R.layout.activity_game);
         this.getSupportActionBar().hide();
 
+        settings();
+        start();
+    }
+
+
+    /* START GAME */
+    private void start(){
+        showInitialInfo();
+        timerP1().start();
+        timerP2().start();
+    }
+
+
+    /* SHOW INITIAL INFO */
+    private void showInitialInfo(){
+        AlertDialog.Builder info = new AlertDialog.Builder(this);
+        info.setTitle("")
+        .setMessage("")
+        .setPositiveButton("Ok",null)
+        .create()
+        .show();
+    }
+
+
+
+
+
+    private void settings(){
         timerOne = (ProgressBar) findViewById(R.id.timerPlayOne);
         timerTwo = (ProgressBar) findViewById(R.id.timerPlayTwo);
 
@@ -53,11 +82,14 @@ public class GameActivity extends ActionBarActivity {
         timerTwo.setMax(totalTwo);
         timerTwo.setProgress(totalTwo);
 
-
         playerOne.setText(TempGameData.PLAYER_ONE);
         playerTwo.setText(TempGameData.PLAYER_TWO);
+    }
 
 
+
+
+    private Thread timerP1(){
         Thread progressOne = new Thread(){
             @Override
             public void run() {
@@ -73,6 +105,11 @@ public class GameActivity extends ActionBarActivity {
                 }
             }
         };
+
+        return progressOne;
+    }
+
+    private Thread timerP2(){
         Thread progressTwo = new Thread(){
             @Override
             public void run() {
@@ -88,11 +125,10 @@ public class GameActivity extends ActionBarActivity {
                 }
             }
         };
-
-        progressOne.start();
-        progressTwo.start();
-
-
+        return progressTwo;
     }
+
+
+
 
 }

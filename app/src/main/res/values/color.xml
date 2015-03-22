@@ -13,6 +13,8 @@
     <item name="darkgray" type="color">#CCC</item>
     <item name="lightgray" type="color">#ffececec</item>
 
+    <item name="cinzaescuro" type="color">#ff9d9d9d</item>
+
 
     <!--  MY COLORS -->
     <item name="green" type="color">#4ACF91</item>

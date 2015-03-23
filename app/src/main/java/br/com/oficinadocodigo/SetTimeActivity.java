@@ -95,11 +95,13 @@ public class SetTimeActivity extends ActionBarActivity implements View.OnClickLi
             simbolP2.setText("o");
             TempGameData.SIMBOL_P1 = "x";
             TempGameData.SIMBOL_P2 = "o";
+            TempGameData.STARTER = TempGameData.PLAYER_ONE;
         }else{
             simbolP1.setText("o");
             simbolP2.setText("x");
             TempGameData.SIMBOL_P1 = "o";
             TempGameData.SIMBOL_P2 = "x";
+            TempGameData.STARTER = TempGameData.PLAYER_TWO;
         }
     }
 

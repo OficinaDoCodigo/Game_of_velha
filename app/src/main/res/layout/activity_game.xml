@@ -127,14 +127,12 @@
         <TextView
             android:textSize="35sp"
             android:text="1:00"
+            android:id="@+id/timep1"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="wrap_content"
-            android:layout_height="fill_parent">
+            android:layout_height="fill_parent"/>
 
-
-
-        </TextView>
 
         <TextView
             android:id="@+id/simbolPlayOne"
@@ -172,6 +170,7 @@
         <TextView
             android:textSize="35sp"
             android:text="1:00"
+            android:id="@+id/timep2"
             android:gravity="center"
             android:layout_weight="1"
             android:layout_width="wrap_content"

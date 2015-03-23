@@ -13,7 +13,7 @@ import br.com.oficinadocodigo.aux.TempGameData;
 
 public class ShowOpponentsActivity extends ActionBarActivity {
 
-    public static final int SPLASH_DISPLAY_LENGTH = 4000;
+    public static final int SPLASH_DISPLAY_LENGTH = 3000;
     private TextView p1;
     private TextView p2;
 

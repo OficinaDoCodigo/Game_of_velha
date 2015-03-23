@@ -1,12 +1,17 @@
 package br.com.oficinadocodigo;
 
 import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Chronometer;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+
+import java.util.Timer;
 
 import br.com.oficinadocodigo.aux.TempGameData;
 
@@ -29,8 +34,9 @@ public class GameActivity extends ActionBarActivity {
     private int totalOne = TempGameData.TIME;
     private int totalTwo = TempGameData.TIME;
 
-
-
+    /* TIMER */
+    private Chronometer timep1;
+    private Chronometer timep2;
     /* Table */
     private TextView a11;
     private TextView a12;
@@ -54,23 +60,32 @@ public class GameActivity extends ActionBarActivity {
 
         settings();
         start();
+        timep1.setBase(SystemClock.elapsedRealtime());
+        timep2.setBase(SystemClock.elapsedRealtime());
+
+
+
     }
 
 
     /* START GAME */
     private void start(){
         showInitialInfo();
-        timerP1().start();
-        timerP2().start();
+
     }
 
 
     /* SHOW INITIAL INFO */
     private void showInitialInfo(){
         AlertDialog.Builder info = new AlertDialog.Builder(this);
-        info.setTitle("")
-        .setMessage("")
-        .setPositiveButton("Ok",null)
+        info.setTitle("Preparem-se")
+        .setMessage(TempGameData.STARTER+" começa o jogo")
+        .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                timer(TempGameData.STARTER).start();
+            }
+        })
         .create()
         .show();
     }
@@ -101,6 +116,11 @@ public class GameActivity extends ActionBarActivity {
         playerOne.setText(TempGameData.PLAYER_ONE);
         playerTwo.setText(TempGameData.PLAYER_TWO);
 
+
+        /* TIME */
+        timep1 = (Chronometer) findViewById(R.id.timep1);
+        timep2 = (Chronometer) findViewById(R.id.timep2);
+
         /* Table */
         a11 = (TextView) findViewById(R.id.a11);
         a12 = (TextView) findViewById(R.id.a12);
@@ -118,46 +138,43 @@ public class GameActivity extends ActionBarActivity {
 
 
 
-    private Thread timerP1(){
-        Thread progressOne = new Thread(){
-            @Override
-            public void run() {
+    private Thread timer(String player){
+        Thread progress = null;
+        if(player.equals(playerOne.getText().toString())){
+            progress = new Thread(){
+                @Override
+                public void run() {
+                    while(totalOne >= 0){
+                        try {
+                            sleep(1000);
+                           // totalOne--;
+                            timerOne.setProgress(totalOne);
 
-                while(totalOne >= 0){
-                    try {
-                        sleep(1000);
-                        totalOne--;
-                        timerOne.setProgress(totalOne);
-                    }catch (InterruptedException e){
+                        }catch (InterruptedException e){
 
+                        }
                     }
                 }
-            }
-        };
+            };
+        }
+        if(player.equals(playerTwo.getText().toString())){
+            progress = new Thread(){
+                @Override
+                public void run() {
+                    while(totalTwo >= 0){
+                        try {
+                            sleep(1000);
+                           // totalTwo--;
+                            timerTwo.setProgress(totalTwo);
 
-        return progressOne;
-    }
+                        }catch (InterruptedException e){
 
-    private Thread timerP2(){
-        Thread progressTwo = new Thread(){
-            @Override
-            public void run() {
-
-                while(totalTwo >= 0){
-                    try {
-                        sleep(1000);
-                        totalTwo--;
-                        timerTwo.setProgress(totalTwo);
-                    }catch (InterruptedException e){
-
+                        }
                     }
                 }
-            }
-        };
-        return progressTwo;
+            };
+        }
+        return progress;
     }
-
-
-
 
 }

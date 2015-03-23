@@ -2,6 +2,7 @@ package br.com.oficinadocodigo;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.os.CountDownTimer;
 import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -13,7 +14,9 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import java.util.Timer;
+import java.util.concurrent.TimeUnit;
 
+import br.com.oficinadocodigo.aux.Chrono;
 import br.com.oficinadocodigo.aux.TempGameData;
 
 
@@ -36,8 +39,8 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     private int totalTwo = TempGameData.TIME;
 
     /* TIMER */
-    private Chronometer timep1;
-    private Chronometer timep2;
+    private TextView timep1;
+    private TextView timep2;
     /* Table */
     private TextView a11;
     private TextView a12;
@@ -51,6 +54,9 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     private TextView a32;
     private TextView a33;
 
+    ChronoX t1 = new ChronoX(totalOne*1000,1000);
+    ChronoY t2 = new ChronoY(totalOne*1000,1000);
+
 
 
     @Override
@@ -61,12 +67,28 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
         settings();
         start();
-        timep1.setBase(SystemClock.elapsedRealtime());
-        timep2.setBase(SystemClock.elapsedRealtime());
 
 
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     /* START GAME */
@@ -85,6 +107,8 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 timer(TempGameData.STARTER).start();
+                t1.start();
+
             }
         })
         .create()
@@ -119,8 +143,8 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
 
         /* TIME */
-        //timep1 = (Chronometer) findViewById(R.id.timep1);
-        //timep2 = (Chronometer) findViewById(R.id.timep2);
+        timep1 = (TextView) findViewById(R.id.timep1);
+        timep2 = (TextView) findViewById(R.id.timep2);
 
         /* Table */
         a11 = (TextView) findViewById(R.id.a11);
@@ -132,6 +156,10 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         a31 = (TextView) findViewById(R.id.a31);
         a32 = (TextView) findViewById(R.id.a32);
         a33 = (TextView) findViewById(R.id.a33);
+
+
+        timep1.setText(""+totalOne);
+        timep2.setText(""+totalTwo);
 
 
     }
@@ -148,7 +176,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                     while(totalOne >= 0){
                         try {
                             sleep(1000);
-                           // totalOne--;
+                            totalOne--;
                             timerOne.setProgress(totalOne);
 
                         }catch (InterruptedException e){
@@ -165,7 +193,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                     while(totalTwo >= 0){
                         try {
                             sleep(1000);
-                           // totalTwo--;
+                            totalTwo--;
                             timerTwo.setProgress(totalTwo);
 
                         }catch (InterruptedException e){
@@ -187,4 +215,41 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
         }
     }
+
+
+    /* CLASSES AUXILIADORAS */
+
+
+
+
+    class ChronoX extends CountDownTimer {
+        public ChronoX(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+        @Override
+        public void onTick(long milis) {
+            String format   = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(milis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milis)),                                                TimeUnit.MILLISECONDS.toSeconds(milis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milis)));
+            timep1.setText(format);
+        }
+        @Override
+        public void onFinish() {
+        }
+    }
+
+
+
+    class ChronoY extends CountDownTimer {
+        public ChronoY(long millisInFuture, long countDownInterval) {
+            super(millisInFuture, countDownInterval);
+        }
+        @Override
+        public void onTick(long milis) {
+            String format   = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(milis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milis)),                                                TimeUnit.MILLISECONDS.toSeconds(milis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milis)));
+            timep2.setText(format);
+        }
+        @Override
+        public void onFinish() {
+        }
+    }
+
 }

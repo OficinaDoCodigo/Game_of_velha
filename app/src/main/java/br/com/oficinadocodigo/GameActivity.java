@@ -7,6 +7,7 @@ import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.Chronometer;
 import android.widget.ProgressBar;
 import android.widget.TextView;
@@ -16,7 +17,7 @@ import java.util.Timer;
 import br.com.oficinadocodigo.aux.TempGameData;
 
 
-public class GameActivity extends ActionBarActivity {
+public class GameActivity extends ActionBarActivity implements View.OnClickListener{
 
 
     private ProgressBar timerOne;
@@ -118,8 +119,8 @@ public class GameActivity extends ActionBarActivity {
 
 
         /* TIME */
-        timep1 = (Chronometer) findViewById(R.id.timep1);
-        timep2 = (Chronometer) findViewById(R.id.timep2);
+        //timep1 = (Chronometer) findViewById(R.id.timep1);
+        //timep2 = (Chronometer) findViewById(R.id.timep2);
 
         /* Table */
         a11 = (TextView) findViewById(R.id.a11);
@@ -177,4 +178,13 @@ public class GameActivity extends ActionBarActivity {
         return progress;
     }
 
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.a11:
+                break;
+
+        }
+    }
 }

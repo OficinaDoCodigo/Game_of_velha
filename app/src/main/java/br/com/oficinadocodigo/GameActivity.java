@@ -134,6 +134,17 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         a32 = (TextView) findViewById(R.id.a32);
         a33 = (TextView) findViewById(R.id.a33);
 
+        a11.setOnClickListener(this);
+        a12.setOnClickListener(this);
+        a13.setOnClickListener(this);
+        a21.setOnClickListener(this);
+        a22.setOnClickListener(this);
+        a23.setOnClickListener(this);
+        a31.setOnClickListener(this);
+        a32.setOnClickListener(this);
+        a33.setOnClickListener(this);
+
+
 
         if(totalOne == 60){
             timep1.setText("01:00");
@@ -190,14 +201,36 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         return progress;
     }
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.a11:
+                a11.setText("o");
                 break;
-
+            case R.id.a12:
+                a12.setText("o");
+                break;
+            case R.id.a13:
+                a13.setText("o");
+                break;
+            case R.id.a21:
+                a21.setText("o");
+                break;
+            case R.id.a22:
+                a22.setText("o");
+                break;
+            case R.id.a23:
+                a23.setText("o");
+                break;
+            case R.id.a31:
+                a31.setText("o");
+                break;
+            case R.id.a32:
+                a32.setText("o");
+                break;
+            case R.id.a33:
+                a33.setText("o");
+                break;
         }
     }
 
@@ -218,6 +251,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         @Override
         public void onFinish() {
+            timep1.setText("00:00");
         }
     }
 
@@ -234,6 +268,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         @Override
         public void onFinish() {
+            timep2.setText("00:00");
         }
     }
 

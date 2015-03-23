@@ -187,7 +187,6 @@
         android:layout_weight="10"
         android:padding="25dp"
         >
-
         <TableLayout
             android:layout_width="fill_parent"
             android:layout_height="fill_parent">
@@ -197,16 +196,25 @@
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a11"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
                 <TextView  android:background="@color/cinzaescuro" android:layout_height="fill_parent" android:layout_width="2dp"/>
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a12"
+                    android:text="  "
+                    android:gravity="center"
+                    android:textSize="@dimen/simbol"
                     android:layout_weight="1"/>
                 <TextView  android:background="@color/cinzaescuro" android:layout_height="fill_parent" android:layout_width="2dp"/>
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a13"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
             </TableRow>
             <TextView
@@ -219,6 +227,9 @@
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a21"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
 
                 <TextView  android:background="@color/cinzaescuro" android:layout_height="fill_parent" android:layout_width="2dp"/>
@@ -226,6 +237,9 @@
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a22"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
 
                 <TextView  android:background="@color/cinzaescuro" android:layout_height="fill_parent" android:layout_width="2dp"/>
@@ -233,6 +247,9 @@
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a23"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
             </TableRow>
 
@@ -243,16 +260,25 @@
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a31"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
                 <TextView  android:background="@color/cinzaescuro" android:layout_height="fill_parent" android:layout_width="2dp"/>
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a32"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
                 <TextView  android:background="@color/cinzaescuro" android:layout_height="fill_parent" android:layout_width="2dp"/>
                 <TextView
                     android:layout_height="fill_parent"
                     android:id="@+id/a33"
+                    android:text="  "
+                    android:textSize="@dimen/simbol"
+                    android:gravity="center"
                     android:layout_weight="1"/>
             </TableRow>
 

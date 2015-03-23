@@ -80,8 +80,11 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                timer(TempGameData.STARTER).start();
+                timer(playerOne.getText().toString()).start();
+                timer(playerTwo.getText().toString()).start();
+
                 t1.start();
+                t2.start();
 
             }
         })
@@ -132,8 +135,17 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         a33 = (TextView) findViewById(R.id.a33);
 
 
-        timep1.setText(""+totalOne);
-        timep2.setText(""+totalTwo);
+        if(totalOne == 60){
+            timep1.setText("01:00");
+            timep2.setText("01:00");
+        }else if(totalOne == 5){
+            timep1.setText("00:0"+totalOne);
+            timep2.setText("00:0"+totalTwo);
+        }
+        else{
+            timep1.setText("00:"+totalOne);
+            timep2.setText("00:"+totalTwo);
+        }
 
     }
 

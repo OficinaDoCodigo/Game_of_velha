@@ -3,20 +3,12 @@ package br.com.oficinadocodigo;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.CountDownTimer;
-import android.os.SystemClock;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
-import android.widget.Chronometer;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-
-import java.util.Timer;
 import java.util.concurrent.TimeUnit;
-
-import br.com.oficinadocodigo.aux.Chrono;
 import br.com.oficinadocodigo.aux.TempGameData;
 
 
@@ -71,24 +63,6 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     /* START GAME */
@@ -160,7 +134,6 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
         timep1.setText(""+totalOne);
         timep2.setText(""+totalTwo);
-
 
     }
 

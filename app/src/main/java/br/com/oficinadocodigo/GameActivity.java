@@ -1,6 +1,8 @@
 package br.com.oficinadocodigo;
 
+import android.app.Activity;
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.os.CountDownTimer;
@@ -17,8 +19,7 @@ import br.com.oficinadocodigo.aux.TempGameData;
 
 public class GameActivity extends ActionBarActivity implements View.OnClickListener{
 
-
-    int jogadorDaVez = 1;
+    String jogadorDaVez;
     int contJogadas = 0;
 
     private ProgressBar timerOne;
@@ -56,8 +57,12 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     private TextView a32;
     private TextView a33;
 
-    ChronoX t1 = new ChronoX(totalOne*1000,1000);
-    ChronoY t2 = new ChronoY(totalOne*1000,1000);
+
+    long millisInFutureT1 = totalOne*1000;
+    long millisInFutureT2 = totalOne*1000;
+
+    ChronoX t1 = new ChronoX(millisInFutureT1,1000);;
+    ChronoY t2 = new ChronoY(millisInFutureT2,1000);
 
 
 
@@ -69,8 +74,6 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
         settings();
         start();
-
-
 
     }
 
@@ -87,14 +90,24 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         AlertDialog.Builder info = new AlertDialog.Builder(this);
         info.setTitle("Preparem-se")
         .setMessage(TempGameData.STARTER+" começa o jogo")
-        .setPositiveButton("Ok",new DialogInterface.OnClickListener() {
+        .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
-                timer(playerOne.getText().toString()).start();
-                timer(playerTwo.getText().toString()).start();
 
-                t1.start();
-                t2.start();
+
+                if (TempGameData.STARTER.equals(TempGameData.PLAYER_ONE)) {
+                    jogadorDaVez = TempGameData.PLAYER_ONE;
+                    timer(playerOne.getText().toString()).start();
+                    t1.start();
+
+                    System.out.println("\n\n----Player 1 ----  "+TempGameData.STARTER+"  ----\n\n");
+
+                }else{
+                    jogadorDaVez = TempGameData.PLAYER_TWO;
+                    System.out.println("\n\n---- Player 2 ---- "+TempGameData.STARTER+" ----\n\n");
+                    timer(playerTwo.getText().toString()).start();
+                    t2.start();
+                }
 
             }
         })
@@ -210,33 +223,76 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         return progress;
     }
+
     @Override
     public void onClick(View v) {
         realizarJogada(v.getId());
-        if(contJogadas > 2){
-            if(verificarJogo() == false && contJogadas == 9){
-                Toast toast = Toast.makeText(this, "Empate!", Toast.LENGTH_SHORT);
-                toast.show();
-                desabilitarBotoes();
-            }
-        }
     }
 
     public void realizarJogada(int idView){
         for (int i = 0; i<3; i++){
             for(int j = 0; j<3; j++){
+
                 if(idView == a[i][j].getId()){
                     if(a[i][j].getText().toString().length() != 1) {
-                        if (jogadorDaVez == 1) {
+
+
+                        if (jogadorDaVez.equals(TempGameData.STARTER)) {
+
                             a[i][j].setText("x");
-                            jogadorDaVez = 0;
+                            if(verificarJogo()) {
+                                jogoTerminado(jogadorDaVez);
+                                break;
+                            }
+
+                            if(jogadorDaVez.equals(TempGameData.PLAYER_ONE)) {
+                                t1.cancel();
+                                t2 = new ChronoY(millisInFutureT2,1000);
+                                t2.start();
+                                jogadorDaVez = TempGameData.PLAYER_TWO;
+                            }else {
+                                t2.cancel();
+                                t1 = new ChronoX(millisInFutureT1,1000);
+                                t1.start();
+                                jogadorDaVez = TempGameData.PLAYER_ONE;
+                            }
+
+                            contJogadas++;
                         } else {
+
                             a[i][j].setText("o");
-                            jogadorDaVez = 1;
+                            if(verificarJogo()) {
+                                jogoTerminado(jogadorDaVez);
+                                break;
+                            }
+
+                            if(jogadorDaVez.equals(TempGameData.PLAYER_ONE)) {
+                                t1.cancel();
+                                t2 = new ChronoY(millisInFutureT2,1000);
+                                t2.start();
+                                jogadorDaVez = TempGameData.PLAYER_TWO;
+                            }else {
+                                t2.cancel();
+                                t1 = new ChronoX(millisInFutureT1,1000);
+                                t1.start();
+                                jogadorDaVez = TempGameData.PLAYER_ONE;
+                            }
+
+                            jogadorDaVez = TempGameData.STARTER;
+                            contJogadas++;
                         }
-                        contJogadas++;
+
+                        if(contJogadas == 9){
+                            t1.cancel();
+                            t2.cancel();
+                            desabilitarBotoes();
+                        }
+
                     }
+
+
                 }
+
             }
         }
     }
@@ -246,18 +302,12 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         for(int i = 0; i<3; i++) {
             //Linhas
             if (a[i][0].getText().toString().equals("x") && a[i][0].getText().toString().equals(a[i][1].getText().toString()) && a[i][0].getText().toString().equals(a[i][2].getText().toString())) {
-                Toast toast = Toast.makeText(this, "X Ganhou!", Toast.LENGTH_SHORT);
-                toast.show();
-                desabilitarBotoes();
                 a[i][0].setTextColor(Color.RED);
                 a[i][1].setTextColor(Color.RED);
                 a[i][2].setTextColor(Color.RED);
                 return true;
             }
             if (a[i][0].getText().toString().equals("o") && a[i][0].getText().toString().equals(a[i][1].getText().toString()) && a[i][0].getText().toString().equals(a[i][2].getText().toString())) {
-                Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
-                toast.show();
-                desabilitarBotoes();
                 a[i][0].setTextColor(Color.RED);
                 a[i][1].setTextColor(Color.RED);
                 a[i][2].setTextColor(Color.RED);
@@ -265,18 +315,12 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             }
             //Colunas
             if (a[0][i].getText().toString().equals("x") && a[0][i].getText().toString().equals(a[1][i].getText().toString()) && a[0][i].getText().toString().equals(a[2][i].getText().toString())) {
-                Toast toast = Toast.makeText(this, "X Ganhou!", Toast.LENGTH_SHORT);
-                toast.show();
-                desabilitarBotoes();
                 a[0][i].setTextColor(Color.RED);
                 a[1][i].setTextColor(Color.RED);
                 a[2][i].setTextColor(Color.RED);
                 return true;
             }
             if (a[0][i].getText().toString().equals("o") && a[0][i].getText().toString().equals(a[1][i].getText().toString()) && a[0][i].getText().toString().equals(a[2][i].getText().toString())) {
-                Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
-                toast.show();
-                desabilitarBotoes();
                 a[0][i].setTextColor(Color.RED);
                 a[1][i].setTextColor(Color.RED);
                 a[2][i].setTextColor(Color.RED);
@@ -286,18 +330,12 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
 
         //diagonal principal
         if(a[0][0].getText().toString().equals("o") && a[0][0].getText().toString().equals(a[1][1].getText().toString()) && a[0][0].getText().toString().equals(a[2][2].getText().toString())){
-            Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
-            toast.show();
-            desabilitarBotoes();
             a[0][0].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][2].setTextColor(Color.RED);
             return true;
         }
         if(a[0][0].getText().toString().equals("x") && a[0][0].getText().toString().equals(a[1][1].getText().toString()) && a[0][0].getText().toString().equals(a[2][2].getText().toString())){
-            Toast toast = Toast.makeText(this, "x Ganhou!", Toast.LENGTH_SHORT);
-            toast.show();
-            desabilitarBotoes();
             a[0][0].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][2].setTextColor(Color.RED);
@@ -305,18 +343,12 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         //Diagonal secundária
         if(a[0][2].getText().toString().equals("x") && a[0][2].getText().toString().equals(a[1][1].getText().toString()) && a[0][2].getText().toString().equals(a[2][0].getText().toString())){
-            Toast toast = Toast.makeText(this, "x Ganhou!", Toast.LENGTH_SHORT);
-            toast.show();
-            desabilitarBotoes();
             a[0][2].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][0].setTextColor(Color.RED);
             return true;
         }
         if(a[0][2].getText().toString().equals("o") && a[0][2].getText().toString().equals(a[1][1].getText().toString()) && a[0][2].getText().toString().equals(a[2][0].getText().toString())){
-            Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
-            toast.show();
-            desabilitarBotoes();
             a[0][2].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][0].setTextColor(Color.RED);
@@ -333,10 +365,18 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
+    public void jogoTerminado(String playerVencedor){
+        if(playerVencedor.equals(TempGameData.PLAYER_ONE)){
+            t1.cancel();
+        }else{
+            t2.cancel();
+        }
+        Toast toast = Toast.makeText(this, playerVencedor+" ganhou!", Toast.LENGTH_SHORT);
+        toast.show();
+        desabilitarBotoes();
+    }
+
     /* CLASSES AUXILIADORAS */
-
-
-
 
     class ChronoX extends CountDownTimer {
         public ChronoX(long millisInFuture, long countDownInterval) {
@@ -344,12 +384,15 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         @Override
         public void onTick(long milis) {
+            millisInFutureT1 = milis;
             String format   = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(milis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milis)),                                                TimeUnit.MILLISECONDS.toSeconds(milis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milis)));
             timep1.setText(format);
         }
         @Override
         public void onFinish() {
             timep1.setText("00:00");
+            t2.cancel();
+            jogoTerminado(TempGameData.PLAYER_TWO);
         }
     }
 
@@ -361,12 +404,18 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
         @Override
         public void onTick(long milis) {
-            String format   = String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(milis) - TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milis)),                                                TimeUnit.MILLISECONDS.toSeconds(milis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milis)));
+            millisInFutureT2 = milis;
+            String format   =
+                    String.format("%02d:%02d", TimeUnit.MILLISECONDS.toMinutes(milis) -
+                                    TimeUnit.HOURS.toMinutes(TimeUnit.MILLISECONDS.toHours(milis)),
+                    TimeUnit.MILLISECONDS.toSeconds(milis) - TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(milis)));
             timep2.setText(format);
         }
         @Override
         public void onFinish() {
+            t1.cancel();
             timep2.setText("00:00");
+            jogoTerminado(TempGameData.PLAYER_ONE);
         }
     }
 

@@ -9,8 +9,8 @@ public class TempGameData {
     public static boolean   SOUND_PLAY = true;
     public static int       VOLUME = 100;
 
-    public static String    PLAYER_ONE;
-    public static String    PLAYER_TWO;
+    public static String    PLAYER_ONE = "player1";
+    public static String    PLAYER_TWO = "player2";
     public static String    STARTER;
 
     public static int       TIME = 60;

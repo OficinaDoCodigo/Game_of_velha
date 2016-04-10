@@ -214,7 +214,11 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         realizarJogada(v.getId());
         if(contJogadas > 2){
-            verificarJogo();
+            if(verificarJogo() == false && contJogadas == 9){
+                Toast toast = Toast.makeText(this, "Empate!", Toast.LENGTH_SHORT);
+                toast.show();
+                desabilitarBotoes();
+            }
         }
     }
 
@@ -237,7 +241,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
-    public void verificarJogo(){
+    public boolean verificarJogo(){
 
         for(int i = 0; i<3; i++) {
             //Linhas
@@ -248,6 +252,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                 a[i][0].setTextColor(Color.RED);
                 a[i][1].setTextColor(Color.RED);
                 a[i][2].setTextColor(Color.RED);
+                return true;
             }
             if (a[i][0].getText().toString().equals("o") && a[i][0].getText().toString().equals(a[i][1].getText().toString()) && a[i][0].getText().toString().equals(a[i][2].getText().toString())) {
                 Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
@@ -256,6 +261,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                 a[i][0].setTextColor(Color.RED);
                 a[i][1].setTextColor(Color.RED);
                 a[i][2].setTextColor(Color.RED);
+                return true;
             }
             //Colunas
             if (a[0][i].getText().toString().equals("x") && a[0][i].getText().toString().equals(a[1][i].getText().toString()) && a[0][i].getText().toString().equals(a[2][i].getText().toString())) {
@@ -265,6 +271,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                 a[0][i].setTextColor(Color.RED);
                 a[1][i].setTextColor(Color.RED);
                 a[2][i].setTextColor(Color.RED);
+                return true;
             }
             if (a[0][i].getText().toString().equals("o") && a[0][i].getText().toString().equals(a[1][i].getText().toString()) && a[0][i].getText().toString().equals(a[2][i].getText().toString())) {
                 Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
@@ -273,6 +280,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                 a[0][i].setTextColor(Color.RED);
                 a[1][i].setTextColor(Color.RED);
                 a[2][i].setTextColor(Color.RED);
+                return true;
             }
         }
 
@@ -284,6 +292,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             a[0][0].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][2].setTextColor(Color.RED);
+            return true;
         }
         if(a[0][0].getText().toString().equals("x") && a[0][0].getText().toString().equals(a[1][1].getText().toString()) && a[0][0].getText().toString().equals(a[2][2].getText().toString())){
             Toast toast = Toast.makeText(this, "x Ganhou!", Toast.LENGTH_SHORT);
@@ -292,6 +301,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             a[0][0].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][2].setTextColor(Color.RED);
+            return true;
         }
         //Diagonal secundária
         if(a[0][2].getText().toString().equals("x") && a[0][2].getText().toString().equals(a[1][1].getText().toString()) && a[0][2].getText().toString().equals(a[2][0].getText().toString())){
@@ -301,6 +311,7 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             a[0][2].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][0].setTextColor(Color.RED);
+            return true;
         }
         if(a[0][2].getText().toString().equals("o") && a[0][2].getText().toString().equals(a[1][1].getText().toString()) && a[0][2].getText().toString().equals(a[2][0].getText().toString())){
             Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
@@ -309,7 +320,9 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             a[0][2].setTextColor(Color.RED);
             a[1][1].setTextColor(Color.RED);
             a[2][0].setTextColor(Color.RED);
+            return true;
         }
+        return false;
     }
 
     public void desabilitarBotoes(){

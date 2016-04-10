@@ -23,9 +23,9 @@ public class MenuActivity extends ActionBarActivity implements View.OnClickListe
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
         this.getSupportActionBar().hide();
-        media = MediaPlayer.create(MenuActivity.this, R.raw.sound_mortal);
-        media.start();
-        media.setLooping(true);
+        //media = MediaPlayer.create(MenuActivity.this, R.raw.sound_mortal);
+        //media.start();
+        //media.setLooping(true);
 
         btn_novo = (Button) findViewById(R.id.btn_jogar_menu);
         btn_config = (Button) findViewById(R.id.btn_config_menu);

@@ -8,12 +8,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import java.util.concurrent.TimeUnit;
 import br.com.oficinadocodigo.aux.TempGameData;
 
 
 public class GameActivity extends ActionBarActivity implements View.OnClickListener{
 
+
+    int jogadorDaVez = 1;
+    int contJogadas = 0;
 
     private ProgressBar timerOne;
     private ProgressBar timerTwo;
@@ -34,6 +39,10 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     private TextView timep1;
     private TextView timep2;
     /* Table */
+
+    TextView[][] a;
+    int aId[][] = new int[3][3];
+
     private TextView a11;
     private TextView a12;
     private TextView a13;
@@ -124,26 +133,25 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         timep2 = (TextView) findViewById(R.id.timep2);
 
         /* Table */
-        a11 = (TextView) findViewById(R.id.a11);
-        a12 = (TextView) findViewById(R.id.a12);
-        a13 = (TextView) findViewById(R.id.a13);
-        a21 = (TextView) findViewById(R.id.a21);
-        a22 = (TextView) findViewById(R.id.a22);
-        a23 = (TextView) findViewById(R.id.a23);
-        a31 = (TextView) findViewById(R.id.a31);
-        a32 = (TextView) findViewById(R.id.a32);
-        a33 = (TextView) findViewById(R.id.a33);
 
-        a11.setOnClickListener(this);
-        a12.setOnClickListener(this);
-        a13.setOnClickListener(this);
-        a21.setOnClickListener(this);
-        a22.setOnClickListener(this);
-        a23.setOnClickListener(this);
-        a31.setOnClickListener(this);
-        a32.setOnClickListener(this);
-        a33.setOnClickListener(this);
+        a = new TextView[3][3];
+        a[0][0] = (TextView) findViewById(R.id.a11);
+        a[0][1] = (TextView) findViewById(R.id.a12);
+        a[0][2] = (TextView) findViewById(R.id.a13);
 
+        a[1][0] = (TextView) findViewById(R.id.a21);
+        a[1][1] = (TextView) findViewById(R.id.a22);
+        a[1][2] = (TextView) findViewById(R.id.a23);
+
+        a[2][0] = (TextView) findViewById(R.id.a31);
+        a[2][1] = (TextView) findViewById(R.id.a32);
+        a[2][2] = (TextView) findViewById(R.id.a33);
+
+        for(int i = 0; i < 3; i++){
+            for(int j = 0; j < 3; j++){
+                a[i][j].setOnClickListener(this);
+            }
+        }
 
 
         if(totalOne == 60){
@@ -203,36 +211,66 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     }
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
-            case R.id.a11:
-                a11.setText("o");
-                break;
-            case R.id.a12:
-                a12.setText("o");
-                break;
-            case R.id.a13:
-                a13.setText("o");
-                break;
-            case R.id.a21:
-                a21.setText("o");
-                break;
-            case R.id.a22:
-                a22.setText("o");
-                break;
-            case R.id.a23:
-                a23.setText("o");
-                break;
-            case R.id.a31:
-                a31.setText("o");
-                break;
-            case R.id.a32:
-                a32.setText("o");
-                break;
-            case R.id.a33:
-                a33.setText("o");
-                break;
+        realizarJogada(v.getId());
+        if(contJogadas > 2){
+            verificarJogo();
         }
     }
+
+    public void realizarJogada(int idView){
+        for (int i = 0; i<3; i++){
+            for(int j = 0; j<3; j++){
+                if(idView == a[i][j].getId()){
+                    if(a[i][j].getText().toString().length() != 1) {
+                        if (jogadorDaVez == 1) {
+                            a[i][j].setText("x");
+                            jogadorDaVez = 0;
+                        } else {
+                            a[i][j].setText("o");
+                            jogadorDaVez = 1;
+                        }
+                        contJogadas++;
+                    }
+                }
+            }
+        }
+    }
+
+    public void verificarJogo(){
+
+        for(int i = 0; i<3; i++) {
+            //Linhas
+            if (a[i][0].getText().toString().equals("x") && a[i][0].getText().toString().equals(a[i][1].getText().toString()) && a[i][0].getText().toString().equals(a[i][2].getText().toString())) {
+                Toast toast = Toast.makeText(this, "X Ganhou!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            if (a[i][0].getText().toString().equals("o") && a[i][0].getText().toString().equals(a[i][1].getText().toString()) && a[i][0].getText().toString().equals(a[i][2].getText().toString())) {
+                Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            //Colunas
+            if (a[0][i].getText().toString().equals("x") && a[0][i].getText().toString().equals(a[1][i].getText().toString()) && a[0][i].getText().toString().equals(a[2][i].getText().toString())) {
+                Toast toast = Toast.makeText(this, "X Ganhou!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+            if (a[0][i].getText().toString().equals("o") && a[0][i].getText().toString().equals(a[1][i].getText().toString()) && a[0][i].getText().toString().equals(a[2][i].getText().toString())) {
+                Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        }
+
+        //diagonal principal
+        if(a[0][0].getText().toString().equals("o") && a[0][0].getText().toString().equals(a[1][1].getText().toString()) && a[0][0].getText().toString().equals(a[2][2].getText().toString())){
+            Toast toast = Toast.makeText(this, "o Ganhou!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        //Diagonal secundária
+        if(a[0][2].getText().toString().equals("x") && a[0][2].getText().toString().equals(a[1][1].getText().toString()) && a[0][2].getText().toString().equals(a[2][0].getText().toString())){
+            Toast toast = Toast.makeText(this, "x Ganhou!", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+    }
+
 
 
     /* CLASSES AUXILIADORAS */

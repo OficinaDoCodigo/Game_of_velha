@@ -286,6 +286,9 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                             t1.cancel();
                             t2.cancel();
                             desabilitarBotoes();
+                            Toast toast = Toast.makeText(this, "Empate!", Toast.LENGTH_SHORT);
+                            toast.show();
+                            desabilitarBotoes();
                         }
 
                     }
@@ -417,6 +420,15 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
             timep2.setText("00:00");
             jogoTerminado(TempGameData.PLAYER_ONE);
         }
+    }
+
+    @Override
+    protected void onPause() {
+        desabilitarBotoes();
+        t1.cancel();
+        t2.cancel();
+        super.onPause();
+        finish();
     }
 
 }

@@ -21,6 +21,7 @@ import java.util.Random;
 import br.com.oficinadocodigo.R;
 import br.com.oficinadocodigo.aux.Message;
 import br.com.oficinadocodigo.aux.TempGameData;
+import br.com.oficinadocodigo.game_of_velha.InfoPlayerTwo;
 
 public class SetTimeActivity extends ActionBarActivity implements View.OnClickListener {
 
@@ -107,6 +108,7 @@ public class SetTimeActivity extends ActionBarActivity implements View.OnClickLi
 
     private void trocarTela(Class c){
         startActivity(new Intent(SetTimeActivity.this,c));
+        //SetTimeActivity.this.finish();
     }
 
 }

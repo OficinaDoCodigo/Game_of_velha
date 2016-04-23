@@ -33,7 +33,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/icon"
+                    android:src="@drawable/iconeloiro"
                     />
 
                 <LinearLayout
@@ -102,7 +102,7 @@
                 <ImageView
                     android:layout_width="50dp"
                     android:layout_height="wrap_content"
-                    android:src="@drawable/iconeloiro"
+                    android:src="@drawable/icon"
                     />
             </LinearLayout>
             <ProgressBar

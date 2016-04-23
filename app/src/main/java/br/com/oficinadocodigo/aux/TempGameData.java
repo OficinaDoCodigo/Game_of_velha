@@ -1,5 +1,11 @@
 package br.com.oficinadocodigo.aux;
 
+import android.net.Uri;
+
+import java.net.URI;
+
+import br.com.oficinadocodigo.R;
+
 /**
  * Created by henry on 20/03/15.
  */
@@ -12,6 +18,13 @@ public class TempGameData {
     public static String    PLAYER_ONE = "player1";
     public static String    PLAYER_TWO = "player2";
     public static String    STARTER;
+
+    public static Uri ICON_PLAYER_ONE = Uri.parse("R.drawable.iconeloiro");
+    public static Uri ICON_PLAYER_TWO = Uri.parse("R.drawable.icon");
+
+    public static int       RESULT;
+    public static String    PLAYER_WIN = "";
+    public static Uri       ICON_PLAYER_WIN;
 
     public static int       TIME = 60;
 

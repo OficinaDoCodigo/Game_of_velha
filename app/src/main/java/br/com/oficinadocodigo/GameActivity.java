@@ -4,8 +4,10 @@ import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.CountDownTimer;
+import android.os.Handler;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -100,11 +102,8 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                     timer(playerOne.getText().toString()).start();
                     t1.start();
 
-                    System.out.println("\n\n----Player 1 ----  "+TempGameData.STARTER+"  ----\n\n");
-
-                }else{
+                } else {
                     jogadorDaVez = TempGameData.PLAYER_TWO;
-                    System.out.println("\n\n---- Player 2 ---- "+TempGameData.STARTER+" ----\n\n");
                     timer(playerTwo.getText().toString()).start();
                     t2.start();
                 }
@@ -286,9 +285,10 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
                             t1.cancel();
                             t2.cancel();
                             desabilitarBotoes();
-                            Toast toast = Toast.makeText(this, "Empate!", Toast.LENGTH_SHORT);
-                            toast.show();
+                            //Toast toast = Toast.makeText(this, "Empate!", Toast.LENGTH_SHORT);
+                            //toast.show();
                             desabilitarBotoes();
+                            exibirVencedores(0); //Empate
                         }
 
                     }
@@ -369,14 +369,16 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     public void jogoTerminado(String playerVencedor){
+        desabilitarBotoes();
         if(playerVencedor.equals(TempGameData.PLAYER_ONE)){
             t1.cancel();
+            exibirVencedores(1);
         }else{
             t2.cancel();
+            exibirVencedores(2);
         }
-        Toast toast = Toast.makeText(this, playerVencedor+" ganhou!", Toast.LENGTH_SHORT);
-        toast.show();
-        desabilitarBotoes();
+        //Toast toast = Toast.makeText(this, playerVencedor+" ganhou!", Toast.LENGTH_SHORT);
+        //toast.show();
     }
 
     /* CLASSES AUXILIADORAS */
@@ -422,13 +424,35 @@ public class GameActivity extends ActionBarActivity implements View.OnClickListe
         }
     }
 
-    @Override
-    protected void onPause() {
-        desabilitarBotoes();
-        t1.cancel();
-        t2.cancel();
-        super.onPause();
-        finish();
+    public void exibirVencedores(int vencedor){
+
+        TempGameData.RESULT = vencedor;
+
+        if(vencedor == 0){
+            TempGameData.PLAYER_WIN = "EMPATE";
+        }else if(vencedor == 1){
+            TempGameData.PLAYER_WIN = TempGameData.PLAYER_ONE;
+            TempGameData.ICON_PLAYER_WIN = TempGameData.ICON_PLAYER_ONE;
+        }else{
+            TempGameData.PLAYER_WIN = TempGameData.PLAYER_TWO;
+            TempGameData.ICON_PLAYER_WIN = TempGameData.ICON_PLAYER_TWO;
+        }
+
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                startActivity(new Intent(GameActivity.this, ExibirVencedoresActivity.class));
+            }
+        }, 1000);
+
     }
 
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        t1.cancel();
+        t2.cancel();
+        desabilitarBotoes();
+    }
 }

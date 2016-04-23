@@ -1,4 +1,5 @@
 package br.com.oficinadocodigo;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
@@ -64,5 +65,10 @@ public class ConfigActivity extends ActionBarActivity {
  **/
     }
 
+    @Override
+    public void onBackPressed() {
+        startActivity(new Intent(this,MenuActivity.class));
+        ConfigActivity.this.finish();
+    }
 
 }

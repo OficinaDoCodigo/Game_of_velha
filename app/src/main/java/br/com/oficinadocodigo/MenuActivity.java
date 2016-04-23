@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.Button;
 
 import br.com.oficinadocodigo.aux.TempGameData;
+import br.com.oficinadocodigo.game_of_velha.InfoPlayerOne;
 
 
 public class MenuActivity extends ActionBarActivity implements View.OnClickListener   {
@@ -38,7 +39,7 @@ public class MenuActivity extends ActionBarActivity implements View.OnClickListe
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_jogar_menu:
-                trocarTela(ChoosePlayerOne.class);
+                trocarTela(InfoPlayerOne.class);
                 break;
             case R.id.btn_config_menu:
                 trocarTela(ConfigActivity.class);
@@ -47,7 +48,9 @@ public class MenuActivity extends ActionBarActivity implements View.OnClickListe
     }
 
     private void trocarTela(Class next) {
+
         startActivity(new Intent(this, next));
+        MenuActivity.this.finish();
     }
 
     @Override

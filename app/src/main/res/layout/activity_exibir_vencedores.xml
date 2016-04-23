@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/greenclaro">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:orientation="vertical"
+        android:background="@color/red">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Vencedor"
+            android:textSize="25sp"
+            android:id="@+id/textView"
+            android:textColor="@color/white" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_weight="4"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:text="Parabéns"
+            android:textSize="15dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_saudacao" />
+
+        <TextView
+            android:text="Vencedor"
+            android:textSize="35dp"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/txt_nome_vencedor" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:padding="20dp"
+        android:gravity="bottom"
+        android:layout_weight="1"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <Button
+            android:layout_marginBottom="20dp"
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/botao_principal"
+            android:textColor="@color/lightgray"
+            android:text="Jogar Novamente"
+            android:id="@+id/btn_jogar_novamente" />
+
+        <Button
+            android:layout_width="fill_parent"
+            android:layout_height="50dp"
+            android:background="@drawable/botao_principal"
+            android:textColor="@color/lightgray"
+            android:text="Menu"
+            android:id="@+id/btn_menu" />
+
+
+    </LinearLayout>
+
+
+</LinearLayout>

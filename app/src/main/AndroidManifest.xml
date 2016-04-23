@@ -48,6 +48,19 @@
             android:name=".ShowOpponentsActivity"
             android:label="@string/title_activity_show_opponents" >
         </activity>
+        <activity
+            android:name=".game_of_velha.InfoPlayerOne"
+            android:label="@string/title_activity_info_player_one" >
+        </activity>
+        <activity
+            android:name=".game_of_velha.InfoPlayerTwo"
+            android:label="@string/title_activity_info_player_two" >
+        </activity>
+        <activity
+            android:name=".ExibirVencedoresActivity"
+            android:theme="@style/AppTheme.PopUp"
+            android:label="Vencedores" >
+        </activity>
     </application>
 
 </manifest>

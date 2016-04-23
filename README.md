@@ -1,6 +1,6 @@
 # Game of Velha
 
-O **Game of Velha** é um jogo para android baseado no famoso "jogo da velha". Tem como diferenciais: o design característico e, principalmente, o tempo máximo de permitido para cada jogada. 
+O **Game of Velha** é um jogo para android baseado no famoso "jogo da velha". Tem como diferenciais: o design característico e, principalmente, a funcionalidade de definir um tempo máximo permitido para cada jogada. 
 
 O design do app é baseado no flat design, que traz simplicidade visual aos componentes do game. Os ícones presentes no aplicativo foram desenhados para representarem personagens familiares (vovozinhas, netinhos, etc.) vestidos de armaduras e portando armas medievais (espadas, escudos, etc.), dessa forma, fazendo alusão ao seriado "game of thrones".
 
@@ -18,6 +18,22 @@ O desenvolvimento desse app teve início no ano de 2015, com a contribuição de
 #### Interface
 
 O app conta com um conjunto de 9 activities: [MainActivity], [MenuActivity], [ConfigActivity], [InfoPlayerOne], [InfoPlayerTwo], [SetTimeActivity], [SetTimeActivity], [ShowOpponentsActivity], [GameActivity], [ExibirVencedoresActivity].
+
+![MenuActivity](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Menu.png?raw=true "Menu")
+![InfoPlayerOne](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Player1.png?raw=true "Nome do primeiro jogador")
+![InfoPlayerTwo](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Player2.png?raw=true "Nome do segundo jogador")
+![SetTimeActivity](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Tempo.png?raw=true "Tempo de jogada")
+![ShowOpponentsActivity](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Preparacao1.png?raw=true "Preparação")
+![Preparacao2](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Preparacao.png?raw=true "Preparação 2")
+![GameActivity](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Vitoria(2).png?raw=true "Vitoria1")
+![GameActivity2](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/Vitoria.png?raw=true "Vitoria2")
+![ExibirVencedoresActivity](https://github.com/SeraQueQual/Game_of_velha/blob/master/screnshots/ExibirVencedores.png?raw=true "ExibirVencedoresActiviy")
+
+#### Desenvolvedores
+
+- [Caio Alves](https://github.com/alvescaio)
+- [Carlos Henry](https://github.com/henrywm)
+
 
 
 
